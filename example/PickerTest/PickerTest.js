@@ -142,7 +142,11 @@ export default class PickerTest extends Component {
         Picker.init({
             pickerData,
             selectedValue,
+            midSelectedValue:selectedValue,
             pickerTitleText: 'Select Date and Time',
+            pickerMidBtnText: 'Today',
+
+
             wheelFlex: [2, 1, 1, 2, 1, 1],
             onPickerConfirm: pickedValue => {
                 console.log('area', pickedValue);

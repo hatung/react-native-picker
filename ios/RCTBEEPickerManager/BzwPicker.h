@@ -34,9 +34,13 @@ typedef void(^backBolock)(NSDictionary * );
 @property (strong,nonatomic)NSArray *selectArry;//2级联动时候用的
 
 @property (strong,nonatomic)UIButton *leftBtn;//取消
+@property (strong,nonatomic)UIButton *midBtn;//001
+
 @property (strong,nonatomic)UIButton *rightBtn;
 
 @property(strong,nonatomic)NSString *leftStr;
+@property(strong,nonatomic)NSString *midStr;
+
 @property(strong,nonatomic)NSString *centStr;
 @property(strong,nonatomic)NSString *rightStr;
 @property(strong,nonatomic)NSString *pickerToolBarFontSize;
@@ -63,6 +67,8 @@ typedef void(^backBolock)(NSDictionary * );
 //创建一个数组 接收进来的选择Value
 
 @property(strong,nonatomic)NSArray *selectValueArry;
+@property(strong,nonatomic)NSArray *midSelectValueArry;
+
 
 @property(strong,nonatomic)NSArray *weightArry;
 
@@ -79,7 +85,7 @@ typedef void(^backBolock)(NSDictionary * );
 
 
 
--(instancetype)initWithFrame:(CGRect)frame dic:(NSDictionary *)dic leftStr:(NSString *)leftStr centerStr:(NSString *)centerStr rightStr:(NSString *)rightStr topbgColor:(NSArray *)topbgColor bottombgColor:(NSArray *)bottombgColor leftbtnbgColor:(NSArray *)leftbtnbgColor rightbtnbgColor:(NSArray *)rightbtnbgColor centerbtnColor:(NSArray *)centerbtnColor selectValueArry:(NSArray *)selectValueArry  weightArry:(NSArray *)weightArry
+-(instancetype)initWithFrame:(CGRect)frame dic:(NSDictionary *)dic leftStr:(NSString *)leftStr midStr:(NSString *)midStr centerStr:(NSString *)centerStr rightStr:(NSString *)rightStr topbgColor:(NSArray *)topbgColor bottombgColor:(NSArray *)bottombgColor leftbtnbgColor:(NSArray *)leftbtnbgColor midbtnbgColor:(NSArray *)midbtnbgColor  rightbtnbgColor:(NSArray *)rightbtnbgColor centerbtnColor:(NSArray *)centerbtnColor selectValueArry:(NSArray *)selectValueArry midSelectValueArry:(NSArray *)midSelectValueArry weightArry:(NSArray *)weightArry
        pickerToolBarFontSize:(NSString *)pickerToolBarFontSize  pickerFontSize:(NSString *)pickerFontSize  pickerFontColor:(NSArray *)pickerFontColor  pickerRowHeight:(NSString *)pickerRowHeight  pickerFontFamily:(NSString *)pickerFontFamily;
 
 -(void)selectRow;

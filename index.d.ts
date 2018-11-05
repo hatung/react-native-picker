@@ -32,6 +32,19 @@ interface PickerOptions {
      */
     selectedValue?: any[]
 
+     /**
+     * The middle data in the picker
+     *
+     * Accepts the item in an array
+     * Example: ['selected']
+     *
+     * Default is an empty array
+     *
+     * @type {any[]}
+     * @memberof PickerOptions
+     */
+    midSelectedValue?: any[]
+
     /**
      * Title text shown at the top of the picker
      *
@@ -63,6 +76,17 @@ interface PickerOptions {
     pickerCancelBtnText?: string
 
     /**
+     * Text for the middle button
+     *
+     * Default value is 'cancel'
+     *
+     * @type {string}
+     * @memberof PickerOptions
+     */
+    pickerMidBtnText?: string
+
+
+    /**
      * The color of the text for the confirm button
      *
      * Accepts rgba values as an array
@@ -87,6 +111,19 @@ interface PickerOptions {
      * @memberof PickerOptions
      */
     pickerCancelBtnColor?: number[]
+
+    /**
+     * The color of the text for the middle button
+     *
+     * Accepts rgba values as an array
+     * [R, G, B, A]
+     *
+     * Default is [1, 186, 245, 1]
+     *
+     * @type {number[]}
+     * @memberof PickerOptions
+     */
+    pickerMidBtnColor?: number[]
 
     /**
      * The color of the Title text

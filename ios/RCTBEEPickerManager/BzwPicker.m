@@ -62,7 +62,7 @@
     self.midBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.midBtn.frame = CGRectMake(view.frame.size.width-180, 0, 90, 40);
     self.midBtn.font = [UIFont fontWithName:_pickerFontFamily size:[_pickerToolBarFontSize integerValue]];
-    self.midBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    self.midBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [self.midBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 10.0, 0, 0)];
     [self.midBtn setTitle:self.midStr forState:UIControlStateNormal];
     [self.midBtn setTitleColor:[self colorWith:midbtnbgColor] forState:UIControlStateNormal];

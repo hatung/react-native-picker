@@ -29,6 +29,7 @@
             android:id="@+id/midbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/confirm"
             android:padding="9dp" />
 

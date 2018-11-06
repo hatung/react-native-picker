@@ -134,6 +134,7 @@ public class PickerViewModule extends ReactContextBaseJavaModule implements Life
     private int pickerTextEllipsisLen;
 
     private double[] weights;
+    private String[] midSelectedValue;
 
     private ArrayList<ReturnData> returnData;
 
@@ -205,6 +206,12 @@ public class PickerViewModule extends ReactContextBaseJavaModule implements Life
                 int[] colors = getColor(array);
                 confirmTV.setTextColor(argb(colors[3], colors[0], colors[1], colors[2]));
             }
+
+            if (options.hasKey(MID_SELECTED_VALUE)) {
+                ReadableArray array = options.getArray(MID_SELECTED_VALUE);
+                midSelectedValue = getSelectedValue(array);
+                //select(selectedValue);
+            }
             confirmTV.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -234,10 +241,13 @@ public class PickerViewModule extends ReactContextBaseJavaModule implements Life
                 @Override
                 public void onClick(View v) {
 
-                    if (options.hasKey(MID_SELECTED_VALUE)) {
-                        ReadableArray array = options.getArray(MID_SELECTED_VALUE);
-                        String[] selectedValue = getSelectedValue(array);
-                        select(selectedValue);
+                    switch (curStatus) {
+                        case 0:
+                            pickerViewAlone.setSelectValue(midSelectedValue);
+                            break;
+                        case 1:
+                            pickerViewLinkage.setSelectValue(midSelectedValue);
+                            break;
                     }
 
 //                    switch (curStatus) {

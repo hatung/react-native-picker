@@ -86,6 +86,7 @@ public class PickerViewModule extends ReactContextBaseJavaModule implements Life
 
     private static final String PICKER_DATA = "pickerData";
     private static final String SELECTED_VALUE = "selectedValue";
+    private static final String MID_SELECTED_VALUE = "midSelectedValue";
 
     private static final String IS_LOOP = "isLoop";
 
@@ -99,6 +100,9 @@ public class PickerViewModule extends ReactContextBaseJavaModule implements Life
 
     private static final String PICKER_CONFIRM_BTN_TEXT = "pickerConfirmBtnText";
     private static final String PICKER_CONFIRM_BTN_COLOR = "pickerConfirmBtnColor";
+
+    private static final String PICKER_MIDDLE_BTN_TEXT = "pickerMidBtnText";
+    private static final String PICKER_MIDDLE_BTN_COLOR = "pickerMidBtnColor";
 
     private static final String PICKER_CANCEL_BTN_TEXT = "pickerCancelBtnText";
     private static final String PICKER_CANCEL_BTN_COLOR = "pickerCancelBtnColor";
@@ -124,6 +128,7 @@ public class PickerViewModule extends ReactContextBaseJavaModule implements Life
     private boolean isLoop = true;
 
     private String confirmText;
+    private String middleText;
     private String cancelText;
     private String titleText;
     private int pickerTextEllipsisLen;
@@ -156,6 +161,7 @@ public class PickerViewModule extends ReactContextBaseJavaModule implements Life
             TextView cancelTV = (TextView) view.findViewById(R.id.cancel);
             TextView titleTV = (TextView) view.findViewById(R.id.title);
             TextView confirmTV = (TextView) view.findViewById(R.id.confirm);
+            TextView middleTV = (TextView) view.findViewById(R.id.midbtn);
             RelativeLayout pickerLayout = (RelativeLayout) view.findViewById(R.id.pickerLayout);
             pickerViewLinkage = (PickerViewLinkage) view.findViewById(R.id.pickerViewLinkage);
             pickerViewAlone = (PickerViewAlone) view.findViewById(R.id.pickerViewAlone);
@@ -185,6 +191,7 @@ public class PickerViewModule extends ReactContextBaseJavaModule implements Life
                 int toolBarTextSize = options.getInt(PICKER_TOOL_BAR_TEXT_SIZE);
                 cancelTV.setTextSize(toolBarTextSize);
                 titleTV.setTextSize(toolBarTextSize);
+                middleTV.setTextSize(toolBarTextSize);
                 confirmTV.setTextSize(toolBarTextSize);
             }
 
@@ -211,6 +218,38 @@ public class PickerViewModule extends ReactContextBaseJavaModule implements Life
                     }
                     commonEvent(EVENT_KEY_CONFIRM);
                     hide();
+                }
+            });
+
+            if (options.hasKey(PICKER_MIDDLE_BTN_TEXT)) {
+                middleText = options.getString(PICKER_MIDDLE_BTN_TEXT);
+            }
+            middleTV.setText(!TextUtils.isEmpty(middleText) ? middleText : "");
+            if (options.hasKey(PICKER_MIDDLE_BTN_COLOR)) {
+                ReadableArray array = options.getArray(PICKER_MIDDLE_BTN_COLOR);
+                int[] colors = getColor(array);
+                middleTV.setTextColor(argb(colors[3], colors[0], colors[1], colors[2]));
+            }
+            middleTV.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (options.hasKey(MID_SELECTED_VALUE)) {
+                        ReadableArray array = options.getArray(MID_SELECTED_VALUE);
+                        String[] selectedValue = getSelectedValue(array);
+                        select(selectedValue);
+                    }
+
+//                    switch (curStatus) {
+//                        case 0:
+//                            returnData = pickerViewAlone.getSelectedData();
+//                            break;
+//                        case 1:
+//                            returnData = pickerViewLinkage.getSelectedData();
+//                            break;
+//                    }
+                    //commonEvent(EVENT_KEY_CONFIRM);
+                    //hide();
                 }
             });
 
@@ -369,6 +408,7 @@ public class PickerViewModule extends ReactContextBaseJavaModule implements Life
                 cancelTV.setTypeface(typeface);
                 titleTV.setTypeface(typeface);
                 confirmTV.setTypeface(typeface);
+                middleTV.setTypeface(typeface);
 
                 pickerViewAlone.setTypeface(typeface);
                 pickerViewLinkage.setTypeface(typeface);

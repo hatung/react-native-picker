@@ -60,7 +60,7 @@
     [view addSubview:self.leftBtn];
 
     self.midBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.midBtn.frame = CGRectMake(90, 0, 90, 40);
+    self.midBtn.frame = CGRectMake(view.frame.size.width-180, 0, 90, 40);
     self.midBtn.font = [UIFont fontWithName:_pickerFontFamily size:[_pickerToolBarFontSize integerValue]];
     self.midBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [self.midBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 10.0, 0, 0)];
@@ -79,7 +79,7 @@
     [self.rightBtn addTarget:self action:@selector(cfirmAction) forControlEvents:UIControlEventTouchUpInside];  
     [view addSubview:self.rightBtn];
     
-    UILabel *cenLabel=[[UILabel alloc]initWithFrame:CGRectMake(180, 5, SCREEN_WIDTH-270, 30)];
+    UILabel *cenLabel=[[UILabel alloc]initWithFrame:CGRectMake(90, 5, SCREEN_WIDTH-270, 30)];
     cenLabel.text=self.centStr;
     cenLabel.textAlignment=NSTextAlignmentCenter;
     cenLabel.font = [UIFont fontWithName:_pickerFontFamily size:[_pickerToolBarFontSize integerValue]];

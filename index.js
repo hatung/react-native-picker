@@ -11,6 +11,7 @@ const options = {
     isLoop: false,
     pickerConfirmBtnText: 'confirm',
     pickerCancelBtnText: 'cancel',
+    pickerMidBtnText: '',
     pickerTitleText: 'pls select',
     pickerConfirmBtnColor: [1, 186, 245, 1],
     pickerCancelBtnColor: [1, 186, 245, 1],
